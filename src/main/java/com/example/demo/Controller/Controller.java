@@ -15,11 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.Service.Services;
 
 import software.amazon.awssdk.core.Response;
 import java.io.File;
+import java.io.IOException;
 
 
 
@@ -38,11 +40,20 @@ public class Controller {
  
 
  // create a  method to store response after file uploading to s3
+ public ResponseEntity<Response> uploadFile(@RequestParam("file") MultipartFile file) throws IOException {
 
- public ResponseEntity<String> uploadFile(@RequestParam("file") File file) {
-    Response<String> response = service.uploadFile(file);
-  return new ResponseEntity<>(response.toString(), HttpStatus.OK);
+	 String fileObj =file.getOriginalFilename();
+	 
+	 // create a response object
+
+	  service.saveFile(fileObj, file.getInputStream());
+	 
+	 // return response
+	 return new ResponseEntity<>(HttpStatus.OK);
+ 
  }
+
+ 
  
  
  

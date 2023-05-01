@@ -11,7 +11,8 @@ import software.amazon.awssdk.services.s3.model.PutObjectResponse;
 import software.amazon.awssdk.core.Response;
 import software.amazon.awssdk.core.sync.RequestBody;
 import java.io.File;
-
+import java.io.IOException;
+import java.io.InputStream;
 
 @Service
 public class Services {
@@ -23,16 +24,13 @@ public class Services {
     private String bucketName;
     // create the method for upload file
     
-    public PutObjectResponse uploadFile(String fileName, File file) {
-        PutObjectRequest putObjectRequest = PutObjectRequest.builder()
-                .bucket(bucketName)
+    
+    public void saveFile(String fileName, InputStream streamData) throws IOException {
+
+        s3Client.putObject(PutObjectRequest.builder()
+                .bucket("bucketName")
                 .key(fileName)
-                .build();
-        PutObjectResponse putObjectResponse = s3Client.putObject(putObjectRequest, RequestBody.fromFile(file));
-        return putObjectResponse;
-    }
-    public Response<String> uploadFile(File file) {
-        return null;
+                .build(), RequestBody.fromInputStream(streamData, streamData.available()));
     }
     
 }
