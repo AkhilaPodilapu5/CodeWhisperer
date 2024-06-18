@@ -5,6 +5,15 @@
 
 version: 2
 updates:
+  - package-ecosystem: java
+    directory: "/"
+    schedule:
+      interval: weekly
+      branches:
+        - dev
+        - AkhilaPodilapu5-patch-2
+        - AkhilaPodilapu5-patch-1
+        - AkhilaPodilapu5-patch-3
   - package-ecosystem: maven
     directory: "/"
     schedule:
