@@ -1,0 +1,22 @@
+name: Dependabot PR Handler
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  process_dependabot_pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Add your steps here for testing, linting, etc.
+      # For demonstration, let's just print a message.
+      - name: Print PR information
+        run: |
+          echo "New PR from Dependabot:"
+          echo "PR Number: ${{ github.event.pull_request.number }}"
+          echo "PR Title: ${{ github.event.pull_request.title }}"
+          echo "Source Branch: ${{ github.event.pull_request.head.ref }}"
+          echo "Target Branch: ${{ github.event.pull_request.base.ref }}"
