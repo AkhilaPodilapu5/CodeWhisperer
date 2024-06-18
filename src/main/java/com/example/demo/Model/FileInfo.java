@@ -12,4 +12,5 @@ public class FileInfo {
     String bucketName;
     String objectKey;
     // Date uploadTime;
+    System.out.print("added patch3");
 }
