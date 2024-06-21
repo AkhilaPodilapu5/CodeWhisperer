@@ -9,12 +9,7 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-    ignore:
-      - dependency-name: "dependency-to-ignore"
-        branches:
+    branches:
           - "dev"
-    allow:
-      - dependency-name: "dependency-to-allow"
-        branches:
-          - "dev"
+   
 
