@@ -9,3 +9,16 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
+    branches:
+      - dev
+  - package-ecosystem: "maven"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    branches:
+      - dev
+    ignore:
+      - dependency-name: "spring-boot-starter-data-jpa"
+    allow:
+      - dependency-name: "spring-boot-starter-web"
+    ignore-range-dependencies: false
