@@ -9,13 +9,7 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-    branches:
-      - name: "master"
-        schedule:
-          interval: "weekly"
-      - name: "dev"
-        schedule:
-          interval: "daily"
+    target-branch: "dev"
    
    
 
