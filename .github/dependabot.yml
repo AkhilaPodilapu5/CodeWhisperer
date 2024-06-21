@@ -9,7 +9,6 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-    branches:
-          - "dev"
+   
    
 
