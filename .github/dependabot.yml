@@ -8,11 +8,13 @@ updates:
   - package-ecosystem: "maven"
     directory: "/"
     schedule:
-      interval: "weekly"
-    branches:
-      - dev
+      interval: "daily"
     ignore:
-      - dependency-name: "spring-boot-starter-data-jpa"
+      - dependency-name: "dependency-to-ignore"
+        branches:
+          - "dev"
     allow:
-      - dependency-name: "spring-boot-starter-web"
-    ignore-range-dependencies: false
+      - dependency-name: "dependency-to-allow"
+        branches:
+          - "dev"
+
